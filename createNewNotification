@@ -1,0 +1,28 @@
+// Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart'; // Imports other custom actions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+import 'package:flutter/material.dart';
+// Begin custom action code
+// DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
+import 'package:awesome_notifications/awesome_notifications.dart';
+
+Future<void> createNewNotification() async {
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+      id: 2, // -1 is replaced by a random number
+      channelKey: 'alerts',
+      title: 'Huston! The eagle has landed!',
+      body: "A small step for a man, but a giant leap to Flutter's community!",
+      largeIcon:
+          'https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png',
+      //'asset://assets/images/balloons-in-sky.jpg',
+    ),
+  );
+}
+
+// Set your action name, define your arguments and return parameter,
+// and then add the boilerplate code using the green button on the right!
