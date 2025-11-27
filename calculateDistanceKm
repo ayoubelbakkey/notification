@@ -1,0 +1,38 @@
+import 'dart:convert';
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart' as timeago;
+import '/flutter_flow/custom_functions.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
+import '/flutter_flow/uploaded_file.dart';
+import '/backend/schema/structs/index.dart';
+
+double? calculateDistanceKm(
+  double lat1,
+  double long1,
+  double lat2,
+  double long2,
+) {
+  /// MODIFY CODE ONLY BELOW THIS LINE
+
+  const double earthRadiusKm = 6371;
+
+  double dLat = (lat2 - lat1) * (math.pi / 180);
+  double dLon = (long2 - long1) * (math.pi / 180);
+
+  double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+      math.cos(lat1 * (math.pi / 180)) *
+          math.cos(lat2 * (math.pi / 180)) *
+          math.sin(dLon / 2) *
+          math.sin(dLon / 2);
+
+  double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+
+  return earthRadiusKm * c;
+
+  /// MODIFY CODE ONLY ABOVE THIS LINE
+}
